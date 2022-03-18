@@ -4,7 +4,6 @@ import avatar from '../../assets/avatar.jpg'
 import Title from '../Title'
 import hero from '../../assets/hero.jpg'
 import { device } from '../../utils/device'
-import Container from '../Container/Container'
 import Wrapper from '../Wrapper'
 
 const ui = {
