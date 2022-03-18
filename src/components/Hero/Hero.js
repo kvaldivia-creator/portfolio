@@ -4,11 +4,13 @@ import avatar from '../../assets/avatar.jpg'
 import Title from '../Title'
 import hero from '../../assets/hero.jpg'
 import { device } from '../../utils/device'
+import Container from '../Container/Container'
+import Wrapper from '../Wrapper'
 
 const ui = {
   HeroWrapper: styled.div`
     width: 100%;
-    height: calc(100vh - 90px);
+    height: calc(100vh - 100px);
     margin: 0 auto;
   `,
   Hero: styled.section`
@@ -53,6 +55,10 @@ const ui = {
     line-height: 72px;
     text-transform: uppercase;
     margin-bottom: 16px;
+
+    @media ${device.mobileL} {
+      font-size: 42px;
+    }
   `,
   HeroImage: styled.div`
     width: 260px;
@@ -78,21 +84,23 @@ const styleBackgroundHero = {
 const Hero = () => {
   return (
     <>
-      <ui.HeroWrapper style={styleBackgroundHero}>
-        <ui.Hero>
-          <ui.HeroImage>
-            <img className='avatar' src={avatar} alt="Avatar" />
-          </ui.HeroImage>
-          <ui.HeroText>
-            <span>Hola!! Soy</span>
-            <ui.Title>Kevin Valdivia</ui.Title>
-            <span className='professional-career'>Frontend Developer</span>
-            <span>
-              Soy un desarrollador frontend, fan de Javascript y React JS.
-            </span>
-          </ui.HeroText>
-        </ui.Hero>
-      </ui.HeroWrapper>
+      <Wrapper>
+        <ui.HeroWrapper style={styleBackgroundHero}>
+          <ui.Hero>
+            <ui.HeroImage>
+              <img className='avatar' src={avatar} alt="Avatar" />
+            </ui.HeroImage>
+            <ui.HeroText>
+              <span>Hola!! Soy</span>
+              <ui.Title>Kevin Valdivia</ui.Title>
+              <span className='professional-career'>Frontend Developer</span>
+              <span>
+                Soy un desarrollador frontend, fan de Javascript y React JS.
+              </span>
+            </ui.HeroText>
+          </ui.Hero>
+        </ui.HeroWrapper>
+      </Wrapper>
     </>
   )
 }

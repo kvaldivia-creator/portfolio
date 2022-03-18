@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Title from '../components/Title'
 import avatar from '../assets/avatar.jpg'
@@ -13,6 +13,8 @@ import npm from '../assets/conocimientos/npm.png'
 import webpack from '../assets/conocimientos/webpack.jpg'
 import nextjs from '../assets/conocimientos/nextjs.png'
 import { device } from '../utils/device'
+import Loading from '../components/Loading'
+import Wrapper from '../components/Wrapper'
 
 const ui = {
   AboutWrapper: styled.div`
@@ -181,48 +183,64 @@ const logoKnowledge = [
 ]
 
 const About = () => {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  }, [])
   return (
     <>
-      <ui.AboutWrapper>
-        <ui.Title>Sobre mi</ui.Title>
-        <Container>
-          <ui.About>
-            <ui.AboutHero>
-              <ui.AboutImage src={avatar} width={500} alt="Avatar" />
-              <ui.AboutInformation>
-                Soy Kevin Valdivia Alfonso egresado de la Universidad Nacional del Centro del Perú, de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en Desarrollador Frontend.
-                {/* <span>Soy fan de JavaScript y React JS</span>
-                <span>Abierto a aprender lo que sea.</span> */}
-              </ui.AboutInformation>
-            </ui.AboutHero>
-          </ui.About>
-        </Container>
-      </ui.AboutWrapper>
-      <ui.KnowledgeWrapper style={styleBackgroundAbout}>
-        <ui.Knowledge>
-          <ui.KnowledgeTitle>Conocimientos</ui.KnowledgeTitle>
-          <Container>
-            <ui.IconLogos>
-              {
-                logoKnowledge.map(logo => (
-                  <img className='logo-knowledge' key={logo.id} src={logo.image} alt={logo.alt} />
-                ))
-              }
-            </ui.IconLogos>
-          </Container>
-        </ui.Knowledge>
-      </ui.KnowledgeWrapper>
-      <ui.EducationWrapper>
-        <Container>
-          <ui.Education>
-            <ui.EducationTitle>Educación</ui.EducationTitle>
-            <ul className='education-list'>
-              <li className='education-item'>2017, Ingeniería de Sistemas <span>UNCP</span></li>
-              <li className='education-item'>2021, Ingles Básico <span>UNCP CEID</span></li>
-            </ul>
-          </ui.Education>
-        </Container>
-      </ui.EducationWrapper>
+      {
+        !loading
+          ? <>
+              <Wrapper>
+                <ui.AboutWrapper>
+                  <ui.Title>Sobre mi</ui.Title>
+                  <Container>
+                    <ui.About>
+                      <ui.AboutHero>
+                        <ui.AboutImage src={avatar} width={500} alt="Avatar" />
+                        <ui.AboutInformation>
+                          Soy Kevin Valui.Divia Alfonso egresado de la Universidad Nacional del Centro del Perú, de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en Desarrollador Frontend.
+                          {/* <span>Soy fan de JavaScript y React JS</span>
+                          <span>Abierto a aprender lo que sea.</span> */}
+                        </ui.AboutInformation>
+                      </ui.AboutHero>
+                    </ui.About>
+                  </Container>
+                </ui.AboutWrapper>
+                <ui.KnowledgeWrapper style={styleBackgroundAbout}>
+                  <ui.Knowledge>
+                    <ui.KnowledgeTitle>Conocimientos</ui.KnowledgeTitle>
+                    <Container>
+                      <ui.IconLogos>
+                        {
+                          logoKnowledge.map(logo => (
+                            <img className='logo-knowledge' key={logo.id} src={logo.image} alt={logo.alt} />
+                          ))
+                        }
+                      </ui.IconLogos>
+                    </Container>
+                  </ui.Knowledge>
+                </ui.KnowledgeWrapper>
+                <ui.EducationWrapper>
+                  <Container>
+                    <ui.Education>
+                      <ui.EducationTitle>Educación</ui.EducationTitle>
+                      <ul className='education-list'>
+                        <li className='education-item'>2017, Ingeniería de Sistemas <span>UNCP</span></li>
+                        <li className='education-item'>2021, Ingles Básico <span>UNCP CEID</span></li>
+                      </ul>
+                    </ui.Education>
+                  </Container>
+                </ui.EducationWrapper>
+              </Wrapper>
+          </>
+          : <Loading loading={loading} />
+      }
     </>
   )
 }

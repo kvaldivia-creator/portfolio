@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Title from '../components/Title'
 import Container from '../components/Container/Container'
@@ -16,9 +16,12 @@ import certificado7 from '../assets/certificados-platzi/7.jpg'
 import certificado8 from '../assets/certificados-platzi/8.jpg'
 import certificado9 from '../assets/certificados-platzi/9.jpg'
 import certificado10 from '../assets/certificados-platzi/10.jpg'
+import Loading from '../components/Loading'
+import Wrapper from '../components/Wrapper'
 
 const ui = {
   Title: styled(Title)`
+    padding-top: 30px;
     margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
@@ -94,14 +97,28 @@ const cursosPlatzi = [
 
 
 const Certifications = () => {
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  }, [])
   return (
     <>
-      <ui.CertificationsWrapper>
-        <ui.Title>Certificaciones</ui.Title>
-        <Container>
-          <Certification logo={logoPlatzi} data={cursosPlatzi} backgroundColor='#121f3d' />
-        </Container> 
-      </ui.CertificationsWrapper>
+      {
+        loading
+          ? <Loading loading={loading} />
+          : <Wrapper>
+              <ui.CertificationsWrapper>
+                <ui.Title>Certificaciones</ui.Title>
+                <Container>
+                  <Certification logo={logoPlatzi} data={cursosPlatzi} backgroundColor='#121f3d' />
+                </Container> 
+              </ui.CertificationsWrapper>
+            </Wrapper>
+      }
     </>
   )
 }

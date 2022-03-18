@@ -9,7 +9,10 @@ const ui = {
   HeaderWrapper: styled.div`
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-top: 10px solid #0E185F;
+    border-top: 10px solid #139487;
+    position: fixed;
+    background-color: #f2f2f2;
+    top: 0;
 
     .nav-active {
       display: block;
@@ -146,7 +149,7 @@ const SlidebarData = [
   {
     id: 6,
     title: 'Contacto',
-    path: '/contact'
+    path: '/contacto'
   },
 
 ]

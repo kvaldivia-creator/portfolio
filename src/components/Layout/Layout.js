@@ -6,7 +6,7 @@ const ui = {
   Layout: styled.main`
     background-color: #F7F7F7;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
   `
 }
 
