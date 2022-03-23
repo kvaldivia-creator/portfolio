@@ -16,7 +16,7 @@ const ViewPdf = () => {
   useEffect(() => {
     if (typeof window.orientation !== 'undefined') {
       document.getElementById('enlace-descarga').click()
-      window.history.back()
+      window.close()
     }
   }, [])
   return (
