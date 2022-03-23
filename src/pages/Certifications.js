@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Title from '../components/Title'
 import Container from '../components/Container/Container'
 import Certification from '../components/Certification'
-import 'react-lazy-load-image-component/src/effects/blur.css'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import logoPlatzi from '../assets/logo-platzi.png'
 
