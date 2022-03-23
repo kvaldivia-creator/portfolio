@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Container from '../components/Container/Container'
 import Title from '../components/Title'
-import cardImage from '../assets/avatar.jpeg'
 import Wrapper from '../components/Wrapper'
 import Card from '../components/Card'
+import sportGo from '../assets/sportGo.jpg'
+import synergytec from '../assets/pagina-web-st.png'
 
 const ui = {
   ProjectsWrapper: styled.div``,
@@ -30,79 +31,14 @@ const Projects = () => {
             <ui.Title>Proyectos</ui.Title>
             <ui.Projects>
               <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
+                cardImage={sportGo} 
+                cardTtile='Aplicativo Web para la búsqueda, reserva y géstion de campos deportivos' 
+                cardDescription='App que facilita la búsqueda y reserva de campos deportivos. Así como también, la promoción y gestión de complejos deportivos..'
               />
               <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
-              />
-              <Card 
-                cardImage={cardImage} 
-                cardTtile='Aplicaciones' 
-                cardDescription='Emisiones en vivo donde conversamos sobre diversos temas del maravilloso mundo de la web.'
+                cardImage={synergytec} 
+                cardTtile='Pagina Web SynergyTec' 
+                cardDescription='SynergyTec empresa peruana que desarrolla productos y servicios de tecnologías de información, especialmente software.'
               />
             </ui.Projects>
           </ui.ProjectsWrapper>

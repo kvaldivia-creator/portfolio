@@ -17,18 +17,19 @@ const ui = {
   `,
   CardFigure: styled.figure`
     width: 100%;
-    `,
-  CardImage: styled.img`
-    width: 100%;
-    height: auto;
-    display: flex;
-    object-fit: cover;
+    height: inherit;  
+    text-align: center;
+
+    span {
+      height: inherit;
+    }
   `,
   CardBody: styled.div`
     padding: 16px;
   `,
   CardTitle: styled.h2`
     margin-bottom: 12px;
+    font-weight: 500;
   `,
   CardDescription: styled.p`
     font-weight: 300;
@@ -37,6 +38,8 @@ const ui = {
 
 const styleCardImage = {
   width: '100%',
+  height: '200px',
+  justifyContent: 'center',
   display: 'flex',
   objectFit: 'cover'
 }
