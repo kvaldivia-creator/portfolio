@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { device } from '../../utils/device'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const ui = {
   Slide: styled.div`
     min-width: 30%;
+    max-height: 30%;
     overflow: hidden;
     transition: .3s ease all;
     z-index: 10;
@@ -16,11 +19,7 @@ const ui = {
     }
   `,
   SlideLink: styled.a`
-  `,
-  SlideImage: styled.img`
-    width: 100%;
-    vertical-align: top;
-    object-fit: contain;
+    
   `,
   SlideAction: styled.p`
     background: ${props => props.colorFondo ? props.colorFondo : 'rgba(0,0,0,.5)'};
@@ -41,6 +40,12 @@ const ui = {
       margin-bottom: 10px;
     }
 
+    @media ${device.mobileL} {
+      .text {
+        font-size: 14px;
+      }
+    }
+
     .button {
       width: 50%;
       padding: 4px 0;
@@ -51,11 +56,13 @@ const ui = {
       font-size: 16px;
       color: white;
     }
-    @media screen and (max-width: 700px) {
-      position: relative;
-      background: #000;
-	}
   `
+}
+
+const styleSlideImage = {
+  width: '100%',
+  verticalAlign: 'top',
+  objectFit: 'contain'
 }
 
 const Slide = ({ textSlide, imageSlide, alt }) => {
@@ -63,7 +70,13 @@ const Slide = ({ textSlide, imageSlide, alt }) => {
     <>
       <ui.Slide>
         <ui.SlideLink href='#'>
-          <ui.SlideImage src={imageSlide} alt={alt} />    
+          <LazyLoadImage
+            style={styleSlideImage}
+            src={imageSlide}
+            alt={alt}
+            effect='blur'
+            placeholderSrc={imageSlide}
+          />   
         </ui.SlideLink>
         <ui.SlideAction>
           <span className='text'>{textSlide}</span>

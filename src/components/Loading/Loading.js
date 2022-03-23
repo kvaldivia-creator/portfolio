@@ -9,13 +9,17 @@ const ui = {
     background-color: #f2f2f2;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-top: 10px;
   `
 }
 
 const override = {
-  display: 'block',
-  margin: '0 auto'
+  display: 'flex',
+  margin: '0 auto',
+  width: '300px',
+  marginLeft: '20px',
+  marginRight: '20px'
 }
 
 const Loading = ({ loading }) => {
@@ -23,7 +27,7 @@ const Loading = ({ loading }) => {
   return (
     <>
       <ui.Loading>
-        <BarLoader css={override} width={300} height={6} loading={loading} color={'#65C18C'}/>
+        <BarLoader css={override} height={6} loading={loading} color={'#65C18C'}/>
       </ui.Loading>
     </>
   )

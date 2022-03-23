@@ -13,6 +13,7 @@ const ui = {
     position: fixed;
     background-color: #f2f2f2;
     top: 0;
+    z-index: 200;
 
     .nav-active {
       display: block;
@@ -46,6 +47,12 @@ const ui = {
       font-style: italic;
       font-weight: 500;
     }
+
+    @media ${device.mobileL} {
+      span {
+        font-size: 30px;
+      }
+    }
   `,
   LogoImg: styled.img``,
   Nav: styled.nav`
@@ -62,6 +69,8 @@ const ui = {
   `,
   NavList: styled.ul`
     display: flex;
+    height: 100%;
+    z-index: 1000;
     
     .navbar-toggle {
       display: none;

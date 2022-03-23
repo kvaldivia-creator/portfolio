@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { ReactComponent as FlechaIzquierda } from '../../assets/iconmonstr-angel-left-thin.svg'
 import { ReactComponent as FlechaDerecha } from '../../assets/iconmonstr-angel-right-thin.svg'
+import { device } from '../../utils/device'
 
 const ui = {
   SlideShowWrapper: styled.div`
@@ -21,6 +22,12 @@ const ui = {
     width: 100%;
     height: 100%;
     pointer-events: none;
+
+    @media ${device.mobileL} {
+      button {
+        width: 25px;
+      }
+    }
   `,
   Button: styled.button`
     pointer-events: all;

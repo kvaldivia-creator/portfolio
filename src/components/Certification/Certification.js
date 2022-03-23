@@ -12,6 +12,7 @@ const ui = {
     border-radius: 10px;
     padding: 40px;
     margin-bottom: 30px;
+    height: 100%;
 
     :last-child {
       margin-bottom: 0;

@@ -5,12 +5,21 @@ import Title from '../Title'
 import hero from '../../assets/hero.jpg'
 import { device } from '../../utils/device'
 import Wrapper from '../Wrapper'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const ui = {
+  Wrapper: styled(Wrapper)`
+    min-height: calc(100vh - 100px);
+  `,
   HeroWrapper: styled.div`
     width: 100%;
     height: calc(100vh - 100px);
     margin: 0 auto;
+
+    @media ${device.mobileL} {
+      height: auto;
+    }
   `,
   Hero: styled.section`
     width: 100%;
@@ -22,7 +31,9 @@ const ui = {
     justify-content: center;
 
     @media ${device.mobileL} {
+      padding-top: 20px;
       flex-direction: column;
+      height: auto;
     }
   `,
   HeroText: styled.div`
@@ -60,17 +71,19 @@ const ui = {
     }
   `,
   HeroImage: styled.div`
-    width: 260px;
-    height: 260px;
+    display: flex;
+    min-width: 260px;
+    min-height: 260px;
     border-radius: 50%;
     overflow: hidden;
-
-    .avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   `
+}
+
+const styleAvatar = {
+  display: 'flex',
+  width: '260px',
+  height: '260px',
+  objectFit: 'cover',
 }
 
 const styleBackgroundHero = {
@@ -83,11 +96,19 @@ const styleBackgroundHero = {
 const Hero = () => {
   return (
     <>
-      <Wrapper>
+      <ui.Wrapper>
         <ui.HeroWrapper style={styleBackgroundHero}>
           <ui.Hero>
             <ui.HeroImage>
-              <img className='avatar' src={avatar} alt="Avatar" />
+              <LazyLoadImage 
+                style={styleAvatar}
+                src={avatar}
+                alt='avatar'
+                height='auto'
+                width='100%'
+                effect='blur'
+                placeholderSrc={avatar}
+              />
             </ui.HeroImage>
             <ui.HeroText>
               <span>Hola!! Soy</span>
@@ -99,7 +120,7 @@ const Hero = () => {
             </ui.HeroText>
           </ui.Hero>
         </ui.HeroWrapper>
-      </Wrapper>
+      </ui.Wrapper>
     </>
   )
 }

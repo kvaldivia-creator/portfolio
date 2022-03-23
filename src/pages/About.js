@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Title from '../components/Title'
 import avatar from '../assets/avatar.jpg'
 import Container from '../components/Container/Container'
 import about from '../assets/about.jpg'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import html from '../assets/conocimientos/html.png'
 import css from '../assets/conocimientos/css.png'
@@ -13,8 +14,9 @@ import npm from '../assets/conocimientos/npm.png'
 import webpack from '../assets/conocimientos/webpack.jpg'
 import nextjs from '../assets/conocimientos/nextjs.png'
 import { device } from '../utils/device'
-import Loading from '../components/Loading'
 import Wrapper from '../components/Wrapper'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+
 
 const ui = {
   AboutWrapper: styled.div`
@@ -40,11 +42,6 @@ const ui = {
     display: flex;
     flex-direction: column;
     align-items: center;
-  `,
-  AboutImage: styled.img`
-    width: 200px;
-    border-radius: 10px;
-    margin-bottom: 30px;
   `,
   AboutInformation: styled.div`
     font-weight: 400;
@@ -144,6 +141,13 @@ const styleBackgroundAbout = {
   backgroundPosition: 'center center'
 }
 
+const styleAboutImage = {
+  width: '200px',
+  height: '200px',
+  borderRadius: '10px',
+  marginBottom: '30px'
+}
+
 const logoKnowledge = [
   {
     id: 1,
@@ -183,64 +187,63 @@ const logoKnowledge = [
 ]
 
 const About = () => {
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500);
-  }, [])
   return (
     <>
-      {
-        !loading
-          ? <>
-              <Wrapper>
-                <ui.AboutWrapper>
-                  <ui.Title>Sobre mi</ui.Title>
-                  <Container>
-                    <ui.About>
-                      <ui.AboutHero>
-                        <ui.AboutImage src={avatar} width={500} alt="Avatar" />
-                        <ui.AboutInformation>
-                          Soy Kevin Valui.Divia Alfonso egresado de la Universidad Nacional del Centro del Perú, de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en Desarrollador Frontend.
-                          {/* <span>Soy fan de JavaScript y React JS</span>
-                          <span>Abierto a aprender lo que sea.</span> */}
-                        </ui.AboutInformation>
-                      </ui.AboutHero>
-                    </ui.About>
-                  </Container>
-                </ui.AboutWrapper>
-                <ui.KnowledgeWrapper style={styleBackgroundAbout}>
-                  <ui.Knowledge>
-                    <ui.KnowledgeTitle>Conocimientos</ui.KnowledgeTitle>
-                    <Container>
-                      <ui.IconLogos>
-                        {
-                          logoKnowledge.map(logo => (
-                            <img className='logo-knowledge' key={logo.id} src={logo.image} alt={logo.alt} />
-                          ))
-                        }
-                      </ui.IconLogos>
-                    </Container>
-                  </ui.Knowledge>
-                </ui.KnowledgeWrapper>
-                <ui.EducationWrapper>
-                  <Container>
-                    <ui.Education>
-                      <ui.EducationTitle>Educación</ui.EducationTitle>
-                      <ul className='education-list'>
-                        <li className='education-item'>2017, Ingeniería de Sistemas <span>UNCP</span></li>
-                        <li className='education-item'>2021, Ingles Básico <span>UNCP CEID</span></li>
-                      </ul>
-                    </ui.Education>
-                  </Container>
-                </ui.EducationWrapper>
-              </Wrapper>
-          </>
-          : <Loading loading={loading} />
-      }
+      <Wrapper>
+        <ui.AboutWrapper>
+          <ui.Title>Sobre mi</ui.Title>
+          <Container>
+            <ui.About>
+              <ui.AboutHero>
+                <LazyLoadImage
+                  style={styleAboutImage}
+                  src={avatar}
+                  alt='Avatar'
+                  effect='blur'
+                  placeholderSrc={avatar}
+                />
+                <ui.AboutInformation>
+                  Soy Kevin Valdivia Alfonso egresado de la Universidad Nacional del Centro del Perú, de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en Desarrollador Frontend.
+                  {/* <span>Soy fan de JavaScript y React JS</span>
+                  <span>Abierto a aprender lo que sea.</span> */}
+                </ui.AboutInformation>
+              </ui.AboutHero>
+            </ui.About>
+          </Container>
+        </ui.AboutWrapper>
+        <ui.KnowledgeWrapper style={styleBackgroundAbout}>
+          <ui.Knowledge>
+            <ui.KnowledgeTitle>Conocimientos</ui.KnowledgeTitle>
+            <Container>
+              <ui.IconLogos>
+                {
+                  logoKnowledge.map(logo => (
+                    <LazyLoadImage 
+                      className='logo-knowledge'
+                      key={logo.id}
+                      src={logo.image}
+                      alt={logo.alt}
+                      effect='blur'
+                      placeholderSrc={logo.image}
+                    />
+                  ))
+                }
+              </ui.IconLogos>
+            </Container>
+          </ui.Knowledge>
+        </ui.KnowledgeWrapper>
+        <ui.EducationWrapper>
+          <Container>
+            <ui.Education>
+              <ui.EducationTitle>Educación</ui.EducationTitle>
+              <ul className='education-list'>
+                <li className='education-item'>2017, Ingeniería de Sistemas <span>UNCP</span></li>
+                <li className='education-item'>2021, Ingles Básico <span>UNCP CEID</span></li>
+              </ul>
+            </ui.Education>
+          </Container>
+        </ui.EducationWrapper>
+      </Wrapper>
     </>
   )
 }

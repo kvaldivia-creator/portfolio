@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Title from '../components/Title'
 import Container from '../components/Container/Container'
 import Certification from '../components/Certification'
+import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 import logoPlatzi from '../assets/logo-platzi.png'
 
@@ -16,8 +18,8 @@ import certificado7 from '../assets/certificados-platzi/7.jpg'
 import certificado8 from '../assets/certificados-platzi/8.jpg'
 import certificado9 from '../assets/certificados-platzi/9.jpg'
 import certificado10 from '../assets/certificados-platzi/10.jpg'
-import Loading from '../components/Loading'
 import Wrapper from '../components/Wrapper'
+import { device } from '../utils/device'
 
 const ui = {
   Title: styled(Title)`
@@ -25,8 +27,13 @@ const ui = {
     margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
+
+    @media ${device.mobileL} {
+      font-size: 24px;
+    }
   `,
   CertificationsWrapper: styled.div`
+    height: 100%;
     margin: 30px 0;
   `,
 }
@@ -97,28 +104,16 @@ const cursosPlatzi = [
 
 
 const Certifications = () => {
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500);
-  }, [])
   return (
     <>
-      {
-        loading
-          ? <Loading loading={loading} />
-          : <Wrapper>
-              <ui.CertificationsWrapper>
-                <ui.Title>Certificaciones</ui.Title>
-                <Container>
-                  <Certification logo={logoPlatzi} data={cursosPlatzi} backgroundColor='#121f3d' />
-                </Container> 
-              </ui.CertificationsWrapper>
-            </Wrapper>
-      }
+      <Wrapper>
+        <ui.CertificationsWrapper>
+          <ui.Title>Certificaciones</ui.Title>
+          <Container>
+            <Certification logo={logoPlatzi} data={cursosPlatzi} backgroundColor='#121f3d' />
+          </Container> 
+        </ui.CertificationsWrapper>
+      </Wrapper>
     </>
   )
 }
