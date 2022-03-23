@@ -9,7 +9,7 @@ const ui = {
   HeaderWrapper: styled.div`
     width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-top: 10px solid #139487;
+    border-top: 10px solid #0E185F;
     position: fixed;
     background-color: #f2f2f2;
     top: 0;
@@ -42,10 +42,11 @@ const ui = {
   `,
   Logo: styled.div`
     span {
-      font-size: 36px;
-      font-family: 'Raleway', sans-serif;
-      font-style: italic;
-      font-weight: 500;
+      display: flex;
+      align-items: center;
+      font-size: 32px;
+      text-transform: uppercase;
+      font-weight: 400;
     }
 
     @media ${device.mobileL} {
@@ -175,7 +176,7 @@ const Navigation = () => {
         <ui.Header>
           <ui.Logo>
             <NavLink to='/'>
-              <span>Kevin HVA</span>
+              <span>Kevin<FaIcons.FaDev color='#E83A14' style={{fontSize: '32px'}} /></span>
             </NavLink>
           </ui.Logo>
           <FaIcons.FaBars onClick={handleToogle} className='navbar-hamburguer' style={{fontSize: '30px'}}/>
