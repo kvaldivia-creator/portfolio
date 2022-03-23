@@ -4,6 +4,7 @@ import Contact from './pages/Contact'
 import Projects from './pages/Projects'
 import { lazy, Suspense } from 'react'
 import Loading from './components/Loading/Loading'
+import ViewPdf from './pages/ViewPdf'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -23,6 +24,7 @@ function App() {
             <Route path='/proyectos' element={<Projects />}></Route>
             <Route path='/experiencias' element={<Experiences />}></Route>
             <Route path='/contacto' element={<Contact />}></Route>
+            <Route path='/pdf' element={<ViewPdf/>}></Route>
           </Routes>
         </Layout>
       </BrowserRouter>

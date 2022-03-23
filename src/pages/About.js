@@ -16,6 +16,7 @@ import nextjs from '../assets/conocimientos/nextjs.png'
 import { device } from '../utils/device'
 import Wrapper from '../components/Wrapper'
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import { NavLink } from 'react-router-dom'
 
 
 const ui = {
@@ -101,6 +102,16 @@ const ui = {
   `,
   EducationWrapper: styled.div`
     padding-bottom: 30px;
+  `,
+  Button: styled.button`
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px 30px;
+    background-color: #2f4c84;
+    color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
   `,
   Education: styled.section`
     max-width: 800px;
@@ -202,6 +213,9 @@ const About = () => {
                   effect='blur'
                   placeholderSrc={avatar}
                 />
+                <NavLink to='/pdf'>
+                  <ui.Button>Ver CV</ui.Button>
+                </NavLink>
                 <ui.AboutInformation>
                   Soy Kevin Valdivia Alfonso egresado de la Universidad Nacional del Centro del Perú, de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en Desarrollador Frontend.
                   {/* <span>Soy fan de JavaScript y React JS</span>
