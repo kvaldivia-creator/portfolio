@@ -1,10 +1,12 @@
-import html from '../assets/conocimientos/html.png';
-import css from '../assets/conocimientos/css.png';
-import js from '../assets/conocimientos/js.png';
-import reactjs from '../assets/conocimientos/reactjs.png';
-import npm from '../assets/conocimientos/npm.png';
-import webpack from '../assets/conocimientos/webpack.jpg';
-import nextjs from '../assets/conocimientos/nextjs.png';
+import html from '../assets/icons/icon-html5.svg';
+import css from '../assets/icons/icon-css3.svg';
+import js from '../assets/icons/icon-javascript.svg';
+import reactjs from '../assets/icons/icon-react.svg';
+import npm from '../assets/icons/icon-npm.svg';
+import webpack from '../assets/icons/icon-webpack.svg';
+import figma from '../assets/icons/icon-figma.svg';
+import github from '../assets/icons/icon-github.svg';
+import ts from '../assets/icons/icon-typescript.svg';
 
 const logoKnowledge = [
 	{
@@ -39,8 +41,18 @@ const logoKnowledge = [
 	},
 	{
 		id: 7,
-		image: nextjs,
-		alt: 'Logo next.js'
+		image: figma,
+		alt: 'Logo figma'
+	},
+	{
+		id: 8,
+		image: github,
+		alt: 'Logo Github'
+	},
+	{
+		id: 9,
+		image: ts,
+		alt: 'Logo Typescript'
 	}
 ];
 

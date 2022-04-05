@@ -1,36 +1,36 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Layout from './components/Layout/Layout'
-import Contact from './pages/Contact'
-import Projects from './pages/Projects'
-import { lazy, Suspense } from 'react'
-import Loading from './components/Loading/Loading'
-import ViewPdf from './pages/ViewPdf'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import React, { lazy, Suspense } from 'react';
+import Loading from './components/Loading/Loading';
+import ViewPdf from './pages/ViewPdf';
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/About'))
-const Certifications = lazy(() => import('./pages/Certifications'))
-const Experiences = lazy(() => import('./pages/Experiences'))
+const Home = lazy(() => import('./pages/Home'));
+const PageAbout = lazy(() => import('./pages/sobremi'));
+const PageCertifications = lazy(() => import('./pages/certificaciones'));
+const PageExperience = lazy(() => import('./pages/experiencia'));
+const PageProjects = lazy(() => import('./pages/proyectos'));
+const PageContact = lazy(() => import('./pages/contacto'));
 
 function App() {
-  return (
-    <>
-    <Suspense fallback={<Loading />}>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/sobremi' element={<About />}></Route>
-            <Route path='/certificaciones' element={<Certifications />}></Route>
-            <Route path='/proyectos' element={<Projects />}></Route>
-            <Route path='/experiencias' element={<Experiences />}></Route>
-            <Route path='/contacto' element={<Contact />}></Route>
-            <Route path='/pdf' element={<ViewPdf/>}></Route>
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </Suspense>
-    </>
-  );
+	return (
+		<React.Fragment>
+			<Suspense fallback={<Loading />}>
+				<BrowserRouter>
+					<Layout>
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/sobremi" element={<PageAbout />} />
+							<Route path="/certificaciones" element={<PageCertifications />} />
+							<Route path="/proyectos" element={<PageProjects />} />
+							<Route path="/experiencias" element={<PageExperience />} />
+							<Route path="/contacto" element={<PageContact />} />
+							<Route path="/pdf" element={<ViewPdf />} />
+						</Routes>
+					</Layout>
+				</BrowserRouter>
+			</Suspense>
+		</React.Fragment>
+	);
 }
 
 export default App;
