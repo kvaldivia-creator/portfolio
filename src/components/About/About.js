@@ -159,7 +159,7 @@ const About = () => {
 									effect="blur"
 									placeholderSrc={avatar}
 								/>
-								<NavLink to="/pdf">
+								<NavLink to="/curriculum_kevin_valdivia_alfonso.pdf">
 									<ui.Button>Ver CV</ui.Button>
 								</NavLink>
 								<ui.AboutInformation>

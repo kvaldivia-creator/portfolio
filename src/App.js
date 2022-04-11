@@ -3,6 +3,7 @@ import Layout from './components/Layout/Layout';
 import React, { lazy, Suspense } from 'react';
 import Loading from './components/Loading/Loading';
 import ViewPdf from './pages/ViewPdf';
+import Found from './components/404/Found';
 
 const Home = lazy(() => import('./pages/Home'));
 const PageAbout = lazy(() => import('./pages/sobremi'));
@@ -18,13 +19,14 @@ function App() {
 				<BrowserRouter>
 					<Layout>
 						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/sobremi" element={<PageAbout />} />
-							<Route path="/certificaciones" element={<PageCertifications />} />
+							<Route exact path="/" element={<Home />} />
+							<Route exact path="/sobremi" element={<PageAbout />} />
+							<Route exact path="/certificaciones" element={<PageCertifications />} />
 							<Route path="/proyectos" element={<PageProjects />} />
 							<Route path="/experiencias" element={<PageExperience />} />
 							<Route path="/contacto" element={<PageContact />} />
-							<Route path="/pdf" element={<ViewPdf />} />
+							<Route path="/curriculum_kevin_valdivia_alfonso.pdf" element={<ViewPdf />} />
+							<Route path="*" element={<Found />} />
 						</Routes>
 					</Layout>
 				</BrowserRouter>
