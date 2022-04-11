@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import React, { lazy, Suspense } from 'react';
 import Loading from './components/Loading/Loading';
@@ -16,7 +16,7 @@ function App() {
 	return (
 		<React.Fragment>
 			<Suspense fallback={<Loading />}>
-				<BrowserRouter>
+				<HashRouter>
 					<Layout>
 						<Routes>
 							<Route exact path="/" element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
 							<Route path="*" element={<Found />} />
 						</Routes>
 					</Layout>
-				</BrowserRouter>
+				</HashRouter>
 			</Suspense>
 		</React.Fragment>
 	);
