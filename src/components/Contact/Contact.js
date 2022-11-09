@@ -87,7 +87,7 @@ const Contacto = () => {
 										<FaIcons.FaLinkedin /> <span>LinkedIn</span>
 									</div>
 									<p>
-										<a href="https://www.linkedin.com/in/kevin-valdivia-8b5a1518b/">
+										<a href="https://www.linkedin.com/in/kevin-holman-valdivia-alfonso-8b5a1518b">
 											kevin valdivia
 										</a>
 									</p>

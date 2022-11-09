@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import logoSynergytec from '../../assets/logos/logo-synergytec.png';
+import logoSolintels from '../../assets/logos/logo-solintels.png';
 import Wrapper from '../Wrapper';
 import Container from '../Container/Container';
 import Title from '../Title';
@@ -15,7 +16,7 @@ const ui = {
 		align-items: center;
 		justify-content: center;
 		max-width: 100%;
-		margin: 0 20px;
+		margin: 0 20px 20px;
 	`,
 	Title: styled(Title)`
     padding-top: 30px;
@@ -46,7 +47,12 @@ const ui = {
 			font-family: 'Raleway', sans-serif;
 			margin-bottom: 12px;
 		}
-	`
+	`,
+  Span: styled.span`
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+  `
 };
 
 const styleImage = {
@@ -65,12 +71,28 @@ const Experiences = () => {
 						<ui.CompanyLogo>
 							<LazyLoadImage
 								style={styleImage}
+								src={logoSolintels}
+								alt="Logo Solintels"
+								effect="blur"
+								placeholderSrc={logoSolintels}
+							/>
+							<ui.Span>Frontend Developer</ui.Span>
+						</ui.CompanyLogo>
+
+						<ui.Description>
+							<li>Utilización de herramientas como HTML, CSS, C#, .NET y el framework Blazor para el desarrollo software EvolSoft que permite la gestión de los procesos administrativos como presupuestos, logística, recursos humanos, finanzas y contabilidad.</li>
+						</ui.Description>
+					</ui.Experiences>
+          <ui.Experiences>
+						<ui.CompanyLogo>
+							<LazyLoadImage
+								style={styleImage}
 								src={logoSynergytec}
 								alt="Logo SynergyTec"
 								effect="blur"
 								placeholderSrc={logoSynergytec}
 							/>
-							<span>Junior Frontend Developer</span>
+							<ui.Span>Junior Frontend Developer</ui.Span>
 						</ui.CompanyLogo>
 
 						<ui.Description>

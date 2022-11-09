@@ -5,6 +5,7 @@ import Wrapper from '../Wrapper';
 import imageFound from '../../assets/image-found.png';
 import Title from '../Title';
 import { device } from '../../utils/device';
+import { NavLink } from 'react-router-dom';
 
 const ui = {
 	ErrorPage: styled.section`
@@ -45,7 +46,7 @@ const ui = {
     font-size: 70px;
     line-height: 74px;
   `,
-	Button: styled.a`
+	Button: styled(NavLink)`
 		display: block;
 		max-width: 180px;
 		background: #fff;
@@ -85,7 +86,7 @@ const Found = () => {
 							<ui.Title>404</ui.Title>
 							<p>OOPS. Parece que la página que estás buscando ya no existe.</p>
 							<p>No te preocupes. Lo traeremos de vuelta a un lugar seguro.</p>
-							<ui.Button href="/" class="err_btn">
+							<ui.Button to="/sobremi" class="err_btn">
 								Back to home
 							</ui.Button>
 						</ui.ErrorPageRight>

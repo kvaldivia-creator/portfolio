@@ -159,12 +159,9 @@ const About = () => {
 									effect="blur"
 									placeholderSrc={avatar}
 								/>
-								<NavLink to="/curriculum_kevin_valdivia_alfonso.pdf">
-									<ui.Button>Ver CV</ui.Button>
-								</NavLink>
 								<ui.AboutInformation>
 									Soy Kevin Valdivia Alfonso egresado de la Universidad Nacional del Centro del Perú,
-									de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en
+									de la Escuela Profesional de Ingeniería de Sistemas, con experiencia en el area de
 									Desarrollador Frontend.
 								</ui.AboutInformation>
 							</ui.AboutHero>
@@ -193,13 +190,22 @@ const About = () => {
 				<ui.EducationWrapper>
 					<Container>
 						<ui.Education>
-							<ui.EducationTitle>Educación</ui.EducationTitle>
+							<ui.EducationTitle>Estudios realizados</ui.EducationTitle>
 							<ul className="education-list">
 								<li className="education-item">
-									2017, Ingeniería de Sistemas <span>UNCP</span>
+									<span>Educación primaria: </span> I.E. No 30153 MARIA NATIVIDAD SALAZAR AGUILAR – CHILCA - HUANCAYO
 								</li>
 								<li className="education-item">
-									2021, Ingles Básico <span>UNCP CEID</span>
+									<span>Educación secundaria: </span> COLEGIO “DAVIS MOODY”– CHILCA - HUANCAYO. 
+								</li>
+                <li className="education-item">
+									<span>Educación superior: </span> UNIVERSIDAD NACIONAL DEL CENTRO DEL PERU – HUANCAYO. 
+								</li>
+                <li className="education-item">
+									<span>Grado academico: </span> BACHILLER EN INGENIERIA DE SISTEMAS
+								</li>
+                <li className="education-item">
+									<span>Idioma: </span> INGLES A NIVEL BASICO 
 								</li>
 							</ul>
 						</ui.Education>
